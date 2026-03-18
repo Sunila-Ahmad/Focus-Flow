@@ -1,0 +1,33 @@
+body {
+    background: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}
+.timer-display {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #2c3e50;
+}
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+}
+#taskList { list-style: none; padding: 0; margin-top: 20px; }
+#taskList li { background: #eee; margin: 5px 0; padding: 10px; border-radius: 5px; text-align: left; }
