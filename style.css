@@ -1,33 +1,56 @@
+:root {
+    --primary: #38bdf8;
+    --bg: #030712;
+    --glass: rgba(17, 24, 39, 0.8);
+}
+
 body {
-    background: #f4f7f6;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at center, #1e1b4b, #030712);
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
 }
-.container {
-    background: white;
+
+.glass-container {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    text-align: center;
-    width: 350px;
+    border-radius: 2.5rem;
+    width: 380px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
 }
-.timer-display {
-    font-size: 4rem;
-    font-weight: bold;
-    margin: 1rem 0;
-    color: #2c3e50;
+
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.logo span { color: var(--primary); font-weight: 800; }
+.music-toggle { cursor: pointer; color: #94a3b8; font-size: 0.8rem; border: 1px solid #334155; padding: 5px 12px; border-radius: 20px; }
+
+.timer-section { position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 2rem; }
+.timer-display { position: absolute; text-align: center; }
+#timer { font-size: 3.5rem; font-weight: 800; display: block; }
+#status { color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem; margin: 0; }
+
+/* SVG Progress Ring */
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 691; /* 2 * PI * r */
+    stroke-dashoffset: 0;
 }
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background: #3498db;
-    color: white;
-}
-#taskList { list-style: none; padding: 0; margin-top: 20px; }
-#taskList li { background: #eee; margin: 5px 0; padding: 10px; border-radius: 5px; text-align: left; }
+
+.controls { display: flex; flex-direction: column; gap: 10px; }
+.btn-main { background: var(--primary); border: none; padding: 15px; border-radius: 15px; font-weight: 700; cursor: pointer; color: #030712; font-size: 1rem; }
+.sub-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-sub { background: #1f2937; border: none; padding: 12px; border-radius: 12px; color: white; cursor: pointer; }
+
+/* Task List Styling */
+.tasks-container { margin-top: 2rem; text-align: left; }
+.input-box { display: flex; gap: 10px; margin-bottom: 1rem; }
+input { background: #0f172a; border: 1px solid #334155; padding: 12px; border-radius: 10px; color: white; flex: 1; }
+#taskList { list-style: none; padding: 0; max-height: 150px; overflow-y: auto; }
+#taskList li { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin-bottom: 5px; font-size: 0.9rem; border-left: 3px solid var(--primary); }

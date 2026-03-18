@@ -3,26 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QAU FocusFlow</title>
+    <title>FocusFlow Premium</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>FocusFlow ⏱️</h1>
-        <div class="timer-display" id="timer">25:00</div>
-        
-        <div class="controls">
-            <button id="start">Start</button>
-            <button id="pause">Pause</button>
-            <button id="reset">Reset</button>
+    <div class="glass-container">
+        <header>
+            <div class="logo"><i class="fas fa-bolt"></i> Focus<span>Flow</span></div>
+            <div class="music-toggle" id="musicBtn">
+                <i class="fas fa-volume-mute"></i> <span>Lofi Mode</span>
+            </div>
+        </header>
+
+        <div class="timer-section">
+            <svg class="progress-ring" width="240" height="240">
+                <circle class="progress-ring__circle-bg" stroke="#1e293b" stroke-width="8" fill="transparent" r="110" cx="120" cy="120"/>
+                <circle class="progress-ring__circle" id="progressCircle" stroke="#38bdf8" stroke-width="8" fill="transparent" r="110" cx="120" cy="120"/>
+            </svg>
+            <div class="timer-display">
+                <span id="timer">25:00</span>
+                <p id="status">Ready to Work</p>
+            </div>
         </div>
 
-        <div class="task-section">
-            <input type="text" id="taskInput" placeholder="What are you studying?">
-            <button id="addTask">Add Task</button>
+        <div class="controls">
+            <button id="start" class="btn-main">Start Session</button>
+            <div class="sub-controls">
+                <button id="pause" class="btn-sub"><i class="fas fa-pause"></i></button>
+                <button id="reset" class="btn-sub"><i class="fas fa-redo"></i></button>
+            </div>
+        </div>
+
+        <div class="tasks-container">
+            <h3><i class="fas fa-tasks"></i> Focus List</h3>
+            <div class="input-box">
+                <input type="text" id="taskInput" placeholder="Add a focus task...">
+                <button id="addTask"><i class="fas fa-plus"></i></button>
+            </div>
             <ul id="taskList"></ul>
         </div>
     </div>
+
+    <audio id="lofiPlayer" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
     <script src="script.js"></script>
 </body>
 </html>
